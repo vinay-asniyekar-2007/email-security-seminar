@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Security — Vinay Asniyekar</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- progress bar -->
+<div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- floating nav -->
+<nav class="floatnav" id="floatnav" aria-label="Section navigation">
+  <span class="floatnav-mark">✉</span>
+  <ul>
+    <li><button data-target="intro" class="active"><i></i>Intro</button></li>
+    <li><button data-target="overview"><i></i>Overview</button></li>
+    <li><button data-target="goals"><i></i>Goals</button></li>
+    <li><button data-target="threats"><i></i>Threats</button></li>
+    <li><button data-target="howitworks"><i></i>How It Works</button></li>
+    <li><button data-target="authflow"><i></i>SPF·DKIM·DMARC</button></li>
+    <li><button data-target="demo"><i></i>Phishing Demo</button></li>
+    <li><button data-target="protection"><i></i>Protection</button></li>
+    <li><button data-target="conclusion"><i></i>Conclusion</button></li>
+    <li><button data-target="questions"><i></i>Questions</button></li>
+    <li><button data-target="thankyou"><i></i>Thank You</button></li>
+  </ul>
+</nav>
+
+<div class="keyhint" id="keyhint">↑ ↓ to navigate</div>
+
+<main id="scrollArea">
+
+  <!-- 1. INTRO -->
+  <section class="slide" id="intro">
+    <div class="slide-inner">
+      <p class="eyebrow reveal">Section 01 · Foundations</p>
+
+      <p class="intro-name reveal">Vinay Asniyekar</p>
+      <div class="intro-badges reveal">
+        <span class="intro-badge">BCA 2nd</span>
+        <span class="intro-badge violet">Cyber Security</span>
+      </div>
+      <hr class="intro-divider reveal">
+
+      <h1 class="hero-title reveal">Email Security</h1>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+      <p class="hero-sub reveal">Protecting messages, identities and digital communication BCA Part II, Fundamentals of Cyber Security.</p>
+
+      <p class="footnote reveal">Over <span class="mono accent-mint">300 billion</span> emails are sent daily — and email remains the <span class="accent-coral">#1 entry point</span> for cyberattacks.</p>
+    </div>
+    <div class="scroll-cue reveal" aria-hidden="true"><span>scroll</span><i></i></div>
+  </section>
+
+  <!-- 2. WHAT IS EMAIL SECURITY -->
+  <section class="slide" id="overview">
+    <div class="slide-inner wide">
+      <p class="eyebrow reveal">Section 02 · What It Protects</p>
+      <h2 class="section-title reveal">What Is Email Security</h2>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+      <p class="section-sub reveal">Why email is a major cybersecurity target.</p>
+
+      <div class="card-grid three reveal">
+        <div class="sketch-card tilt-1">
+          <span class="card-tag mono">DEF</span>
+          <h3>Definition</h3>
+          <p>The technologies, techniques and practices used to protect email accounts, messages, attachments and related information from unauthorized access, attacks and misuse.</p>
+        </div>
+        <div class="sketch-card tilt-2">
+          <span class="card-tag mono">WHY</span>
+          <h3>Why It Matters</h3>
+          <p>Emails carry personal information, credentials, documents, financial data and links — making them a prime target.</p>
+        </div>
+        <div class="sketch-card tilt-1">
+          <span class="card-tag mono">WHAT</span>
+          <h3>What It Protects</h3>
+          <p>Messages · Accounts &amp; credentials · Attachments &amp; links · User identity · Organizational information</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. GOALS -->
+  <section class="slide" id="goals">
+    <div class="slide-inner">
+      <p class="eyebrow reveal">Section 03 · Objectives</p>
+      <h2 class="section-title reveal">Goals of Email Security</h2>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+      <p class="section-sub reveal">The four core security objectives.</p>
+
+      <div class="card-grid four reveal">
+        <div class="sketch-card tilt-1">
+          <span class="card-tag mono">C</span>
+          <h3>Confidentiality</h3>
+          <p>Only authorized people can read an email — encryption protects against unauthorized access.</p>
+        </div>
+        <div class="sketch-card tilt-2">
+          <span class="card-tag mono">I</span>
+          <h3>Integrity</h3>
+          <p>Messages shouldn't be tampered with in transit — cryptographic signatures help verify this.</p>
+        </div>
+        <div class="sketch-card tilt-1">
+          <span class="card-tag mono">A</span>
+          <h3>Authentication</h3>
+          <p>Verifies an email really comes from the claimed sender — SPF, DKIM and DMARC help.</p>
+        </div>
+        <div class="sketch-card tilt-2">
+          <span class="card-tag mono">A</span>
+          <h3>Availability</h3>
+          <p>Authorized users can access email services when needed, even during attacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. THREATS -->
+  <section class="slide" id="threats">
+    <div class="slide-inner">
+      <p class="eyebrow reveal">Section 04 · Know the Enemy</p>
+      <h2 class="section-title reveal">Common Email Security Threats</h2>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+      <p class="section-sub reveal">How attackers target users and organizations.</p>
+
+      <div class="card-grid three reveal">
+        <div class="threat-card">
+          <h3>Phishing</h3>
+          <p>Fake messages designed to trick users into revealing sensitive information.</p>
+        </div>
+        <div class="threat-card">
+          <h3>Spoofing</h3>
+          <p>Manipulating sender information to make an email appear legitimate.</p>
+        </div>
+        <div class="threat-card">
+          <h3>Spam</h3>
+          <p>Large volumes of unwanted email carrying ads, scams or malicious content.</p>
+        </div>
+        <div class="threat-card">
+          <h3>Malware</h3>
+          <p>Viruses, trojans, ransomware or spyware delivered through links or attachments.</p>
+        </div>
+        <div class="threat-card">
+          <h3>Malicious Links / Attachments</h3>
+          <p>Links or files designed to steal information or install malware.</p>
+        </div>
+        <div class="threat-card">
+          <h3>Business Email Compromise</h3>
+          <p>Impersonating a trusted employee or organization to cause fraud or data loss.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. HOW IT WORKS -->
+  <section class="slide" id="howitworks">
+    <div class="slide-inner wide">
+      <p class="eyebrow reveal">Section 05 · The Pipeline</p>
+      <h2 class="section-title reveal">How Email Security Works</h2>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+      <p class="section-sub reveal">A simplified view of the email protection pipeline.</p>
+
+      <div class="pipeline reveal">
+        <div class="pipe-step"><span class="pipe-num mono">1</span><h4>Sender</h4><p>Email is created and sent.</p></div>
+        <div class="pipe-arrow" aria-hidden="true">→</div>
+        <div class="pipe-step"><span class="pipe-num mono">2</span><h4>Mail Server</h4><p>Routed through email infrastructure.</p></div>
+        <div class="pipe-arrow" aria-hidden="true">→</div>
+        <div class="pipe-step"><span class="pipe-num mono">3</span><h4>Security Checks</h4><p>Spam, malware, links, authentication.</p></div>
+        <div class="pipe-arrow" aria-hidden="true">→</div>
+        <div class="pipe-step"><span class="pipe-num mono">4</span><h4>Decision</h4><p>Delivered, quarantined, spam, or rejected.</p></div>
+        <div class="pipe-arrow" aria-hidden="true">→</div>
+        <div class="pipe-step"><span class="pipe-num mono">5</span><h4>Recipient</h4><p>User receives the message safely.</p></div>
+      </div>
+      <p class="footnote reveal">Key mechanisms: <span class="mono accent-mint">spam filtering</span> · <span class="mono accent-mint">malware scanning</span> · <span class="mono accent-mint">link protection</span> · <span class="mono accent-mint">encryption</span> · <span class="mono accent-mint">authentication</span></p>
+    </div>
+  </section>
+
+  <!-- 6. SPF DKIM DMARC -->
+  <section class="slide" id="authflow">
+    <div class="slide-inner wide">
+      <p class="eyebrow reveal">Section 06 · Sender Authentication</p>
+      <h2 class="section-title reveal">SPF, DKIM &amp; DMARC</h2>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+
+      <div class="card-grid three reveal">
+        <div class="sketch-card small">
+          <span class="card-tag mono">SPF</span>
+          <p>Sender Policy Framework — checks whether the sending server is authorized to send for a domain.<br><em>"Is this server allowed to send?"</em></p>
+        </div>
+        <div class="sketch-card small">
+          <span class="card-tag mono">DKIM</span>
+          <p>DomainKeys Identified Mail — adds a cryptographic signature the receiving server can verify.<br><em>"Was this authorized and unaltered?"</em></p>
+        </div>
+        <div class="sketch-card small">
+          <span class="card-tag mono">DMARC</span>
+          <p>Uses SPF/DKIM results to define handling of failed authentication.<br><em>"What happens if authentication fails?"</em></p>
+        </div>
+      </div>
+
+      <div class="flow reveal" id="authFlowDiagram">
+        <div class="flow-row top">
+          <div class="flow-node">SPF</div>
+          <div class="flow-node">DKIM</div>
+        </div>
+        <div class="flow-connector merge" data-line></div>
+        <div class="flow-row mid">
+          <div class="flow-node flow-node--dmarc">DMARC<span>policy check</span></div>
+        </div>
+        <div class="flow-connector branch" data-line></div>
+        <div class="flow-row bottom">
+          <div class="flow-node outcome allow">Allow<span>Inbox</span></div>
+          <div class="flow-node outcome spam">Quarantine<span>Spam folder</span></div>
+          <div class="flow-node outcome reject">Reject<span>Blocked</span></div>
+        </div>
+      </div>
+      <p class="footnote reveal">SPF + DKIM + DMARC → stronger protection against domain impersonation and spoofing.</p>
+    </div>
+  </section>
+
+  <!-- 7. PHISHING DEMO -->
+  <section class="slide" id="demo">
+    <div class="slide-inner wide">
+      <p class="eyebrow reveal">Section 07 · Try It Yourself</p>
+      <h2 class="section-title reveal">Phishing: Spot the Warning Signs</h2>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+      <p class="section-sub reveal">Click the highlighted parts of this fictional email to reveal why they're suspicious. <span class="mono">(Safe demo no real links.)</span></p>
+
+      <div class="demo-wrap reveal">
+        <div class="mail-card">
+          <div class="mail-topbar">
+            <div class="mail-dots"><i></i><i></i><i></i></div>
+            <span class="mono flag-counter" id="flagCounter">0 / 5 flags found</span>
+          </div>
+          <div class="mail-meta">
+            <p><span class="mail-label">From</span>
+              <button type="button" class="flag" data-flag="domain" data-explain="Suspicious / look-alike domain — 'paypa1-security.example' uses a digit 1, not the letter l, and isn't PayPal's real domain.">
+                support@paypa1-security.example
+              </button>
+            </p>
+            <p><span class="mail-label">Subject</span> ⚠ Your account will be suspended!</p>
+          </div>
+          <div class="mail-body">
+            <p>
+              <button type="button" class="flag" data-flag="urgency" data-explain="Urgency and pressure to act quickly — a 24-hour countdown is designed to make you act before you think.">
+                Your account has been temporarily restricted. Verify your information within 24 hours to avoid permanent suspension.
+              </button>
+            </p>
+            <p class="mail-link-row">
+              <button type="button" class="flag flag-link" data-flag="link" data-explain="Suspicious destination behind the link ,the button text looks official, but the underlying URL doesn't match the real service.">
+                Verify Account →
+              </button>
+            </p>
+            <p class="mail-sign">
+              <button type="button" class="flag" data-flag="request" data-explain="Possible request for sensitive information — legitimate services rarely ask you to 're-verify' account details by clicking a link.">
+                Please verify your details to continue.
+              </button>
+            </p>
+            <p>
+              <button type="button" class="flag" data-flag="unexpected" data-explain="Unexpected message requiring verification — you didn't initiate this action, yet it demands an immediate response.">
+                This message was not requested by you.
+              </button>
+            </p>
+          </div>
+        </div>
+
+        <div class="mail-explain" id="mailExplain" aria-live="polite">
+          <p class="mail-explain-empty">Click a highlighted part of the email to see why it's a red flag.</p>
+        </div>
+      </div>
+      <p class="footnote reveal">Educational demonstration only never collect real credentials or send users to a real phishing site.</p>
+    </div>
+  </section>
+
+  <!-- 8. PROTECTION -->
+  <section class="slide" id="protection">
+    <div class="slide-inner">
+      <p class="eyebrow reveal">Section 08 · Stay Safe</p>
+      <h2 class="section-title reveal">How to Protect Yourself</h2>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+      <p class="section-sub reveal">Security is a combination of technology and user awareness.</p>
+
+      <div class="card-grid four reveal">
+        <div class="sketch-card tilt-2"><h3>Strong Passwords</h3><p>Use a strong, unique password for your email account.</p></div>
+        <div class="sketch-card tilt-1"><h3>MFA / 2FA</h3><p>Enable multi-factor authentication wherever it's offered.</p></div>
+        <div class="sketch-card tilt-2"><h3>Verify the Sender</h3><p>Check the actual sender address and domain, not just the display name.</p></div>
+        <div class="sketch-card tilt-1"><h3>Avoid Suspicious Links</h3><p>Don't blindly click links or open suspicious attachments.</p></div>
+        <div class="sketch-card tilt-2"><h3>Never Share OTPs</h3><p>Never share passwords or one-time codes with anyone.</p></div>
+        <div class="sketch-card tilt-1"><h3>Keep Systems Updated</h3><p>Keep OS, browser and email software updated.</p></div>
+        <div class="sketch-card tilt-2"><h3>Report It</h3><p>Report suspicious emails as phishing or spam.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CONCLUSION -->
+  <section class="slide" id="conclusion">
+    <div class="slide-inner">
+      <p class="eyebrow reveal">Section 09 · Wrap Up</p>
+      <h2 class="section-title reveal">Conclusion</h2>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+      <p class="section-sub reveal">Email security is not a single technology.</p>
+
+      <div class="card-grid two reveal">
+        <div class="sketch-card tilt-1">
+          <span class="card-tag mono accent-coral" style="color:var(--coral); border-color:var(--coral-dim); background:var(--coral-dim);">THREATS</span>
+          <p>Phishing · Spoofing · Spam · Malware · Malicious Links/Attachments · BEC</p>
+        </div>
+        <div class="sketch-card tilt-2">
+          <span class="card-tag mono">DEFENSES</span>
+          <p>Encryption · Spam Filtering · Malware Scanning · SPF · DKIM · DMARC · MFA · User Awareness</p>
+        </div>
+      </div>
+
+      <p class="footnote reveal" style="font-size:19px; color:var(--chalk); font-weight:700; margin-top:40px;">
+        Think before you click.<br>
+        Verify before you trust.<br>
+        Protect before you share.
+      </p>
+    </div>
+  </section>
+
+  <!-- 10. QUESTIONS -->
+  <section class="slide" id="questions">
+    <div class="slide-inner">
+      <p class="eyebrow reveal">Section 10 · Open Floor</p>
+      <h1 class="hero-title reveal">Any Questions?</h1>
+      <svg class="squiggle reveal" viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 12 Q 30 2, 60 12 T 118 12 T 176 12 T 234 12 T 292 12" /></svg>
+      <p class="hero-sub reveal">If you have any doubts about my topic or explanation, feel free to ask.</p>
+      <p class="footnote reveal">Thank you for listening.</p>
+    </div>
+    <div class="scroll-cue reveal" aria-hidden="true"><span>scroll</span><i></i></div>
+  </section>
+
+  <!-- 11. THANK YOU — full-bleed video, autoplay with sound -->
+  <section class="slide slide-video" id="thankyou">
+    <div class="video-frame" id="videoFrame">
+      <video id="thankyouVideo" playsinline preload="metadata">
+        <source src="Presentation ending animation video.mp4" type="video/mp4">
+      </video>
+      <div class="video-placeholder" id="videoPlaceholder">
+        <span class="mono">▶</span>
+        <p>Video placeholder — drop <span class="mono">thank.mp4</span> next to this page. It will cover the full screen and autoplay (with sound) when you scroll here.</p>
+      </div>
+      <div class="video-overlay" aria-hidden="true"></div>
+      <h2 class="thankyou-title">Designed and created with love ❤️...</h2>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
